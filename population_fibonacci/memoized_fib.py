@@ -7,7 +7,7 @@ def args() -> [int,int]:
 	except:
 		return 'Incorrect input format. Please input two integers.'
 
-def rabbit_fib(generation, litter, memory):
+def rabbit_fib(generation: int, litter: int, memory) -> int:
 	if generation in memory:
 		return memory[generation]
 	if generation <= 2:
@@ -16,7 +16,7 @@ def rabbit_fib(generation, litter, memory):
 	return memory[generation]
 										
 
-def main() -> int:
+def main() -> None:
 	arguments = args()
 	generations = arguments[0]
 	litter_size = arguments[1]
