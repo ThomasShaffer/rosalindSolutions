@@ -1,5 +1,4 @@
 #! usr/bin/env python
-
 import sys
 
 def args():
@@ -16,14 +15,20 @@ def dominant_probability(numbers: list) -> float:
 	AA = numbers[0]
 	Aa = numbers[1]
 	aa = numbers[2]
+	total = AA + Aa + aa
 
-	total_permutations = AA * Aa * aa
-	recessive_only = (Aa * aa) * (1/2)
-	return 1 - (recessive_only / total_permutations)
+	recessive_only = (aa / total) * ((aa - 1) / (total - 1))
+	heterozygous_only = (Aa / total) * ((Aa - 1) / (total - 1)) / 4
+	heterozygous_recessive = ((Aa / total) * (aa / (total - 1)) + (aa / total) * (Aa / (total - 1))) / 2
 
-def main() -> None:
+
+	return 1 - (recessive_only + heterozygous_only + heterozygous_recessive)
+
+def main() -> float:
 	population = args()
 	probability = dominant_probability(population)
 	print(probability)
+
+
 if __name__ == '__main__':
 	main()
