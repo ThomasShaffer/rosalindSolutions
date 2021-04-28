@@ -37,7 +37,7 @@ def translation(rna: str) -> str:
 
 
 
-def main() -> str:
+def main() -> None:
 	rna_sequence = args()
 	protein_strand = translation(rna_sequence)
 	print(protein_strand)
