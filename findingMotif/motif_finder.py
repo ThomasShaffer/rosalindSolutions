@@ -9,10 +9,10 @@ def args() -> list:
 
 def find_motif(main_string: str, substring: str) -> [int]:
 	occurences = []
-	print(main_string, substring)
 	for index in range(len(main_string)):
 		if main_string[index:index+len(substring)] == substring:
 			occurences.append(index+1)
+
 	return occurences
 
 
