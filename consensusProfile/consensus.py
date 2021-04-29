@@ -21,8 +21,22 @@ def parse_fasta(fasta_files: list) -> list:
 
 	return sequences
 
+def most_common(values: list) -> str:
+	most_common = 0
+	diction = {}
+	for nucleotide in values:
+		if nucleotide not in diction:
+			diction[nucleotide] = 1
+		else:
+			diction[nucleotide] += 1
+
+	if diction[nucleotide] >= max(diction.values()):
+		most_common = nucleotide
+
+	return most_common
+
+
 def find_consensus(sequences: list) -> str:
-	
 
 def main() -> None:
 	fasta_sequences = args()
